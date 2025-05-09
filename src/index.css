@@ -1,0 +1,96 @@
+
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    :root {
+      --background: 0 0% 100%; /* White */
+      --foreground: 224 71.4% 4.1%; /* Dark Blue */
+
+      --muted: 220 14.3% 95.9%; /* Light Gray */
+      --muted-foreground: 220 8.9% 46.1%; /* Medium Gray */
+
+      --popover: 0 0% 100%;
+      --popover-foreground: 224 71.4% 4.1%;
+
+      --card: 0 0% 100%;
+      --card-foreground: 224 71.4% 4.1%;
+      
+      --border: 220 13% 91%;
+      --input: 220 13% 91%;
+
+      --primary: 220 65% 35%; /* Dark Blue from logo */
+      --primary-foreground: 0 0% 100%; /* White */
+
+      --secondary: 180 65% 50%; /* Cyan from logo */
+      --secondary-foreground: 224 71.4% 4.1%; /* Dark Blue */
+
+      --accent: 190 75% 55%; /* Lighter Cyan / Teal */
+      --accent-foreground: 0 0% 100%; /* White */
+
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 0 0% 98%;
+      
+      --ring: 220 65% 35%; /* Dark Blue from logo for focus rings */
+
+      --radius: 0.75rem;
+    }
+
+    .dark {
+      --background: 224 71.4% 4.1%; /* Dark Blue */
+      --foreground: 0 0% 98%; /* Almost White */
+
+      --muted: 220 14.3% 15.9%; /* Darker Gray */
+      --muted-foreground: 220 8.9% 66.1%; /* Lighter Medium Gray */
+
+      --popover: 224 71.4% 4.1%;
+      --popover-foreground: 0 0% 98%;
+
+      --card: 224 71.4% 6.1%; /* Slightly lighter Dark Blue */
+      --card-foreground: 0 0% 98%;
+      
+      --border: 220 13% 21%; /* Darker Border */
+      --input: 220 13% 21%; /* Darker Input */
+
+      --primary: 220 60% 45%; /* Slightly adjusted Dark Blue for dark mode */
+      --primary-foreground: 0 0% 100%;
+
+      --secondary: 180 60% 40%; /* Slightly adjusted Cyan for dark mode */
+      --secondary-foreground: 0 0% 100%;
+
+      --accent: 190 70% 45%; /* Slightly adjusted Teal for dark mode */
+      --accent-foreground: 0 0% 100%;
+
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+      
+      --ring: 220 60% 45%;
+    }
+
+    @layer base {
+      * {
+        @apply border-border;
+      }
+      body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+      }
+    }
+
+    /* Custom scrollbar for a more modern look */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: hsl(var(--muted) / 0.5);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: hsl(var(--primary) / 0.7);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--primary));
+    }
+  
