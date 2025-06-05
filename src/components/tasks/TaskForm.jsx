@@ -46,7 +46,6 @@
       const handleFileChange = (event) => {
         const files = Array.from(event.target.files);
         const newAttachments = [];
-        let VlidationFailed = false;
 
         files.forEach(file => {
           if (file.size > MAX_FILE_SIZE) {
@@ -55,7 +54,6 @@
               description: `File "${file.name}" exceeds the 10MB limit.`,
               variant: "destructive",
             });
-            VlidationFailed = true;
             return;
           }
           if (attachments.some(att => att.name === file.name) || newAttachments.some(att => att.name === file.name)) {
@@ -64,14 +62,13 @@
               description: `File "${file.name}" is already attached.`,
               variant: "destructive",
             });
-            VlidationFailed = true;
             return;
           }
           newAttachments.push({ name: file.name, size: file.size, type: file.type, content: 'placeholder_for_localstorage' });
         });
         
-        if (!VlidationFailed) {
-             setAttachments(prev => [...prev, ...newAttachments]);
+        if (newAttachments.length > 0) {
+          setAttachments(prev => [...prev, ...newAttachments]);
         }
       };
 
