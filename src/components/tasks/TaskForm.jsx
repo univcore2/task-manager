@@ -70,6 +70,8 @@
         if (newAttachments.length > 0) {
           setAttachments(prev => [...prev, ...newAttachments]);
         }
+        // allow re-uploading the same file after selection
+        event.target.value = null;
       };
 
       const handleRemoveAttachment = (fileName) => {
